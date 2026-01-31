@@ -1,19 +1,7 @@
 import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { WorkplacePlace } from '~/types/workplace.d';
-
-// Fix for default marker icon not showing
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-delete L.Icon.Default.prototype._getIconUrl;
-
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png',
-  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png',
-});
 
 interface WorkplaceMapProps {
   places: WorkplacePlace[];
@@ -40,14 +28,14 @@ const MapController: React.FC<{ selectedPlaceId: string | null; places: Workplac
 };
 
 const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, onSelectPlace }) => {
-  const defaultPosition: [number, number] = [51.505, -0.09]; // Default to London
+  const defaultPosition: [number, number] = [13.7563, 100.5018];
   const defaultZoom = 13;
 
   return (
     <MapContainer center={defaultPosition} zoom={defaultZoom} className="h-full w-full relative z-0">
       <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+        attribution="&copy; OpenStreetMap contributors &copy; CARTO"
       />
       {places.map((place) => (
         <Marker
