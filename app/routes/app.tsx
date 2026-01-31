@@ -15,8 +15,6 @@ export function meta() {
 export default function App() {
   const [places] = useState<WorkplacePlace[]>(mockWorkplaces as WorkplacePlace[]);
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
-  const defaultPosition: [number, number] = [51.505, -0.09]; // Default to London - This will now be handled internally by LazyWorkplaceMap for initial position
-  const defaultZoom = 13; // This will now be handled internally by LazyWorkplaceMap for initial position
 
   useEffect(() => {
     if (selectedPlaceId) {
