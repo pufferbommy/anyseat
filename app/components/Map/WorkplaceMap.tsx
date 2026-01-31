@@ -12,6 +12,37 @@ interface WorkplaceMapProps {
   onSelectPlace: (id: string | null) => void;
 }
 
+const getTypeEmoji = (type: string): string => {
+  switch (type) {
+    case 'cafe':
+      return '☕';
+    case 'library':
+      return '📚';
+    case 'workspace':
+      return '💼';
+    default:
+      return '📍';
+  }
+};
+
+const createCustomIcon = (name: string, type: string, isSelected: boolean) => {
+  return L.divIcon({
+    className: 'custom-marker',
+    html: `<div class="
+      ${isSelected ? 'scale-125' : ''}
+      drop-shadow-lg
+      transition-transform
+      duration-200
+      relative
+    ">
+      <span class="absolute bottom-full text-center left-1/2 -translate-x-1/2">${name}</span>
+      <span class="text-2xl">${getTypeEmoji(type)}</span>
+    </div>`,
+    iconSize: [32, 32],
+    iconAnchor: [16, 16],
+  });
+};
+
 const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, onSelectPlace }) => {
   const defaultPosition: [number, number] = [13.7563, 100.5018];
   const defaultZoom = 13;
@@ -26,6 +57,7 @@ const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, on
         <Marker
           key={place.id}
           position={[place.coordinates.lat, place.coordinates.lng]}
+          icon={createCustomIcon(place.name, place.type, place.id === selectedPlaceId)}
           eventHandlers={{
             click: () => {
               onSelectPlace(place.id);
