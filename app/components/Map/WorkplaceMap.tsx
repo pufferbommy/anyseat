@@ -2,6 +2,9 @@ import { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { WorkplacePlace } from '~/types/workplace.d';
+import { Button } from '@heroui/react';
+import { Locate, Minus, Plus } from 'lucide-react';
+import Control from 'react-leaflet-custom-control'
 
 interface WorkplaceMapProps {
   places: WorkplacePlace[];
@@ -32,7 +35,7 @@ const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, on
   const defaultZoom = 13;
 
   return (
-    <MapContainer center={defaultPosition} zoom={defaultZoom} className="h-full w-full relative z-0">
+    <MapContainer center={defaultPosition} zoom={defaultZoom} className="h-full w-full" zoomControl={false}>
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         attribution="&copy; OpenStreetMap contributors &copy; CARTO"
@@ -59,6 +62,21 @@ const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, on
           </Popup>
         </Marker>
       ))}
+      <div className='fixed top-4 right-4 z-400'>
+        <div className='grid gap-2'>
+           <div className='grid'>
+            <Button isIconOnly variant="faded" className='rounded-b-none'>
+              <Plus size={16} />
+            </Button>
+            <Button isIconOnly variant='faded' className='rounded-t-none -mt-0.5'>
+              <Minus size={16} />
+            </Button>
+          </div>
+          <Button isIconOnly variant='faded'>
+            <Locate size={16} />
+          </Button>
+        </div>
+      </div>
       <MapController selectedPlaceId={selectedPlaceId} places={places} />
     </MapContainer>
   );
