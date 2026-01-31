@@ -4,7 +4,6 @@ import 'leaflet/dist/leaflet.css';
 import type { WorkplacePlace } from '~/types/workplace.d';
 import { Button } from '@heroui/react';
 import { Locate, Minus, Plus } from 'lucide-react';
-import Control from 'react-leaflet-custom-control'
 
 interface WorkplaceMapProps {
   places: WorkplacePlace[];
