@@ -1,27 +1,27 @@
 [
   {
     "id": "1",
-    "name": "The Quiet Bean Cafe",
+    "name": "Kafae Cafe",
     "type": "cafe",
     "coordinates": {
-      "lat": 51.5074,
-      "lng": -0.1278
+      "lat": 13.7389,
+      "lng": 100.5621
     },
-    "address": "10 Downing St, London SW1A 2AA",
-    "description": "Cozy cafe with excellent coffee and free Wi-Fi. Perfect for focused work.",
+    "address": "Sukhumvit 39, Klongton Nua, Watthana, Bangkok 10110",
+    "description": "ร้านกาแฟอบอุ่นพร้อมกาแฟอร่อยและ WiFi ฟรี เหมาะสำหรับการทำงานอย่างเต็มที่",
     "wifiAvailable": true,
     "powerOutlets": true
   },
   {
     "id": "2",
-    "name": "Central City Library",
+    "name": "Bangkok Central Library",
     "type": "library",
     "coordinates": {
-      "lat": 51.5174,
-      "lng": -0.0780
+      "lat": 13.7525,
+      "lng": 100.5019
     },
-    "address": "Guildhall, Basinghall St, London EC2V 7HH",
-    "description": "Spacious library with quiet study rooms and public computers.",
+    "address": "Pathum Wan, Pathum Wan District, Bangkok 10330",
+    "description": "ห้องสมุดกว้างขวางพร้อมห้องเรียนเงียบและคอมพิวเตอร์สาธารณะ",
     "wifiAvailable": true,
     "powerOutlets": true
   },
@@ -30,24 +30,24 @@
     "name": "Innovate Hub Coworking",
     "type": "workspace",
     "coordinates": {
-      "lat": 51.5300,
-      "lng": -0.1000
+      "lat": 13.7237,
+      "lng": 100.5242
     },
-    "address": "40 Commercial St, London E1 6LP",
-    "description": "Modern coworking space with meeting rooms and hot desks. Requires membership.",
+    "address": "Sathorn 10, Silom, Bang Rak, Bangkok 10500",
+    "description": "พื้นที่คาวอร์กกิ้งทันสมัยพร้อมห้องประชุมและโต๊ะสดุดี ต้องใช้สมาชิก",
     "wifiAvailable": true,
     "powerOutlets": true
   },
   {
     "id": "4",
-    "name": "The Daily Grind",
+    "name": "After You Cafe",
     "type": "cafe",
     "coordinates": {
-      "lat": 51.4900,
-      "lng": -0.1900
+      "lat": 13.7464,
+      "lng": 100.5359
     },
-    "address": "123 Coffee Lane, Chelsea, London SW3 5XQ",
-    "description": "Popular spot with strong espresso and outdoor seating. Can get busy.",
+    "address": "Siam Paragon, 991 Rama I Road, Pathum Wan, Bangkok 10330",
+    "description": "สถานที่ยอดนิยมพร้อมกาแฟเข้มข้นและที่นั่งกลางแจ้ง อาจจะคับคั่ง",
     "wifiAvailable": true,
     "powerOutlets": false
   },
@@ -56,11 +56,11 @@
     "name": "Community Study Center",
     "type": "library",
     "coordinates": {
-      "lat": 51.4700,
-      "lng": -0.0500
+      "lat": 13.7297,
+      "lng": 100.5270
     },
-    "address": "456 Learning Way, Southwark, London SE1 0JA",
-    "description": "Quiet community center with dedicated study areas. Limited power outlets.",
+    "address": "Saladaeng, Bang Rak, Bangkok 10500",
+    "description": "ศูนย์ชุมชนเงียบสงบพร้อมพื้นที่เรียนที่เหมาะสม มีปลั๊กไฟจำกัด",
     "wifiAvailable": true,
     "powerOutlets": false
   }
