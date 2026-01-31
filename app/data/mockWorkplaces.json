@@ -1,0 +1,67 @@
+[
+  {
+    "id": "1",
+    "name": "The Quiet Bean Cafe",
+    "type": "cafe",
+    "coordinates": {
+      "lat": 51.5074,
+      "lng": -0.1278
+    },
+    "address": "10 Downing St, London SW1A 2AA",
+    "description": "Cozy cafe with excellent coffee and free Wi-Fi. Perfect for focused work.",
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "2",
+    "name": "Central City Library",
+    "type": "library",
+    "coordinates": {
+      "lat": 51.5174,
+      "lng": -0.0780
+    },
+    "address": "Guildhall, Basinghall St, London EC2V 7HH",
+    "description": "Spacious library with quiet study rooms and public computers.",
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "3",
+    "name": "Innovate Hub Coworking",
+    "type": "workspace",
+    "coordinates": {
+      "lat": 51.5300,
+      "lng": -0.1000
+    },
+    "address": "40 Commercial St, London E1 6LP",
+    "description": "Modern coworking space with meeting rooms and hot desks. Requires membership.",
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "4",
+    "name": "The Daily Grind",
+    "type": "cafe",
+    "coordinates": {
+      "lat": 51.4900,
+      "lng": -0.1900
+    },
+    "address": "123 Coffee Lane, Chelsea, London SW3 5XQ",
+    "description": "Popular spot with strong espresso and outdoor seating. Can get busy.",
+    "wifiAvailable": true,
+    "powerOutlets": false
+  },
+  {
+    "id": "5",
+    "name": "Community Study Center",
+    "type": "library",
+    "coordinates": {
+      "lat": 51.4700,
+      "lng": -0.0500
+    },
+    "address": "456 Learning Way, Southwark, London SE1 0JA",
+    "description": "Quiet community center with dedicated study areas. Limited power outlets.",
+    "wifiAvailable": true,
+    "powerOutlets": false
+  }
+]
