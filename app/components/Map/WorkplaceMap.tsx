@@ -1,33 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import type { WorkplacePlace } from '~/types/workplace.d';
 import { Button } from '@heroui/react';
 import { Locate, Minus, Plus } from 'lucide-react';
+import L from 'leaflet';
 
 interface WorkplaceMapProps {
   places: WorkplacePlace[];
   selectedPlaceId: string | null;
   onSelectPlace: (id: string | null) => void;
 }
-
-const MapController: React.FC<{ selectedPlaceId: string | null; places: WorkplacePlace[] }> = ({
-  selectedPlaceId,
-  places,
-}) => {
-  const map = useMap();
-
-  useEffect(() => {
-    if (selectedPlaceId) {
-      const selectedPlace = places.find((place) => place.id === selectedPlaceId);
-      if (selectedPlace) {
-        map.flyTo([selectedPlace.coordinates.lat, selectedPlace.coordinates.lng], 15);
-      }
-    }
-  }, [selectedPlaceId, places, map]);
-
-  return null;
-};
 
 const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, onSelectPlace }) => {
   const defaultPosition: [number, number] = [13.7563, 100.5018];
@@ -61,24 +44,69 @@ const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, on
           </Popup>
         </Marker>
       ))}
-      <div className='fixed top-4 right-4 z-400'>
-        <div className='grid gap-2'>
-           <div className='grid'>
-            <Button isIconOnly variant="faded" className='rounded-b-none'>
-              <Plus size={16} />
-            </Button>
-            <Button isIconOnly variant='faded' className='rounded-t-none -mt-0.5'>
-              <Minus size={16} />
-            </Button>
-          </div>
-          <Button isIconOnly variant='faded'>
-            <Locate size={16} />
-          </Button>
-        </div>
-      </div>
+      <MapControls />
       <MapController selectedPlaceId={selectedPlaceId} places={places} />
     </MapContainer>
   );
 };
+
+const MapController: React.FC<{ selectedPlaceId: string | null; places: WorkplacePlace[] }> = ({
+  selectedPlaceId,
+  places,
+}) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (selectedPlaceId) {
+      const selectedPlace = places.find((place) => place.id === selectedPlaceId);
+      if (selectedPlace) {
+        map.flyTo([selectedPlace.coordinates.lat, selectedPlace.coordinates.lng], 15);
+      }
+    }
+  }, [selectedPlaceId, places, map]);
+
+  return null;
+};
+
+const MapControls = () => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if(ref.current) {
+      L.DomEvent.disableClickPropagation(ref.current)
+      L.DomEvent.disableScrollPropagation(ref.current)
+    }
+  }, [])
+
+  return <div ref={ref} className="fixed top-4 right-4 z-400 grid gap-2">
+    <div className='grid'>
+      <ZoomInButton />
+      <ZoomOutButton />
+    </div>
+    <Button isIconOnly variant='faded'>
+      <Locate size={16} />
+    </Button>
+  </div>
+}
+
+const ZoomInButton = () => {
+  const map = useMap()
+
+  return (
+    <Button onPress={() => map.zoomIn()} isIconOnly variant="faded" className='rounded-b-none'>
+      <Plus size={16} />
+    </Button>
+  )
+}
+
+const ZoomOutButton = () => {
+  const map = useMap()
+  
+  return (
+    <Button onPress={() => map.zoomOut()} isIconOnly variant='faded' className='rounded-t-none -mt-0.5'>
+      <Minus size={16} />
+    </Button>
+  )
+}
 
 export default WorkplaceMap;
