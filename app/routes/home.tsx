@@ -22,9 +22,14 @@ export default function Home() {
       <nav className="fixed top-0 left-0 px-3 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-neutral-200">
         <div className="max-w-6xl py-3 mx-auto flex items-center justify-between">
           <h1 className="text-2xl font-semibold tracking-tight">Anyseat</h1>
-          <Button color="primary" as={Link} to="/app">
-            สำรวจ
-          </Button>
+          <div className="flex gap-2">
+            <Button as={Link} to="/blog" variant="light">
+              บทความ
+            </Button>
+            <Button color="primary" as={Link} to="/app">
+              สำรวจ
+            </Button>
+          </div>
         </div>
       </nav>
       <main className="pt-32 pb-20 px-6">
@@ -142,8 +147,11 @@ export default function Home() {
         </div>
       </main>
       <footer className="border-t border-neutral-200 px-3">
-        <div className="max-w-6xl mx-auto py-3">
+        <div className="max-w-6xl mx-auto py-3 flex items-center justify-between">
           <p className="text-sm text-neutral-500">© 2025 Anyseat.</p>
+          <Link to="/blog" className="text-sm text-neutral-600 hover:text-neutral-900">
+            บทความ
+          </Link>
         </div>
       </footer>
     </div>
