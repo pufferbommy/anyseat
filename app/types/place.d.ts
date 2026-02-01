@@ -1,4 +1,4 @@
-export interface WorkplacePlace {
+export interface Place {
   id: string;
   name: string;
   type: 'cafe' | 'library' | 'workspace';
@@ -8,6 +8,7 @@ export interface WorkplacePlace {
   };
   address?: string;
   description?: string;
+  images?: string[];
   wifiAvailable?: boolean;
   powerOutlets?: boolean;
 }

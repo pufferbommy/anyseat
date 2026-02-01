@@ -1,0 +1,181 @@
+[
+  {
+    "id": "1",
+    "name": "Kafae Cafe",
+    "type": "cafe",
+    "coordinates": {
+      "lat": 13.7389,
+      "lng": 100.5621
+    },
+    "address": "Sukhumvit 39, Klongton Nua, Watthana, Bangkok 10110",
+    "description": "ร้านกาแฟอบอุ่นพร้อมกาแฟอร่อยและ WiFi ฟรี เหมาะสำหรับการทำงานอย่างเต็มที่",
+    "images": [
+      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80",
+      "https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "2",
+    "name": "Bangkok Central Library",
+    "type": "library",
+    "coordinates": {
+      "lat": 13.7525,
+      "lng": 100.5019
+    },
+    "address": "Pathum Wan, Pathum Wan District, Bangkok 10330",
+    "description": "ห้องสมุดกว้างขวางพร้อมห้องเรียนเงียบและคอมพิวเตอร์สาธารณะ",
+    "images": [
+      "https://images.unsplash.com/photo-1568667256549-094345857637?w=800&q=80",
+      "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80",
+      "https://images.unsplash.com/photo-1541963463532-d68292c34b19?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "3",
+    "name": "Innovate Hub Coworking",
+    "type": "workspace",
+    "coordinates": {
+      "lat": 13.7237,
+      "lng": 100.5242
+    },
+    "address": "Sathorn 10, Silom, Bang Rak, Bangkok 10500",
+    "description": "พื้นที่คาวอร์กกิ้งทันสมัยพร้อมห้องประชุมและโต๊ะสดุดี ต้องใช้สมาชิก",
+    "images": [
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80",
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "4",
+    "name": "After You Cafe",
+    "type": "cafe",
+    "coordinates": {
+      "lat": 13.7464,
+      "lng": 100.5359
+    },
+    "address": "Siam Paragon, 991 Rama I Road, Pathum Wan, Bangkok 10330",
+    "description": "สถานที่ยอดนิยมพร้อมกาแฟเข้มข้นและที่นั่งกลางแจ้ง อาจจะคับคั่ง",
+    "images": [
+      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80",
+      "https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=800&q=80",
+      "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": false
+  },
+  {
+    "id": "5",
+    "name": "Community Study Center",
+    "type": "library",
+    "coordinates": {
+      "lat": 13.7297,
+      "lng": 100.5270
+    },
+    "address": "Saladaeng, Bang Rak, Bangkok 10500",
+    "description": "ศูนย์ชุมชนเงียบสงบพร้อมพื้นที่เรียนที่เหมาะสม มีปลั๊กไฟจำกัด",
+    "images": [
+      "https://images.unsplash.com/photo-1507842217121-9eac3e8d1a31?w=800&q=80",
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": false
+  },
+  {
+    "id": "6",
+    "name": "True Digital Park",
+    "type": "workspace",
+    "coordinates": {
+      "lat": 13.7128,
+      "lng": 100.5836
+    },
+    "address": "Sukhumvit 101/1, Phra Khanong Nuea, Watthana, Bangkok 10110",
+    "description": "คาวอร์กกิ้งสเปฟทันสมัยพร้อมสิ่งอำนวยความสะดวกครบครัน มีห้องประชุมและพื้นที่พักผ่อน",
+    "images": [
+      "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?w=800&q=80",
+      "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "7",
+    "name": "Roast Coffee & Eatery",
+    "type": "cafe",
+    "coordinates": {
+      "lat": 13.7292,
+      "lng": 100.5785
+    },
+    "address": "Thong Lor 17, Watthana, Bangkok 10110",
+    "description": "ร้านกาแฟคุณภาพสูงพร้อมอาหารอร่อย บรรยากาศเงียบสงบเหมาะสำหรับการทำงาน",
+    "images": [
+      "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&q=80",
+      "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&q=80",
+      "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "8",
+    "name": "Starbucks Reserve",
+    "type": "cafe",
+    "coordinates": {
+      "lat": 13.7466,
+      "lng": 100.5401
+    },
+    "address": "Central World, 999/9 Rama I Rd, Pathum Wan, Bangkok 10330",
+    "description": "สตาร์บัคส์รีเซิร์ฟพร้อมกาแฟพรีเมียมและบรรยากาศหรูหรา เหมาะสำหรับการทำงานและการประชุม",
+    "images": [
+      "https://images.unsplash.com/photo-1445116572660-236099ec97a0?w=800&q=80",
+      "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&q=80",
+      "https://images.unsplash.com/photo-1559525839-b184a4d698c7?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "9",
+    "name": "The Commons",
+    "type": "workspace",
+    "coordinates": {
+      "lat": 13.7301,
+      "lng": 100.5802
+    },
+    "address": "Thong Lor 17, Watthana, Bangkok 10110",
+    "description": "พื้นที่คาวอร์กกิ้งและร้านค้ารวม บรรยากาศเปิดโล่งและเป็นมิตรต่อสิ่งแวดล้อม",
+    "images": [
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80",
+      "https://images.unsplash.com/photo-1497215842964-222b430dc094?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  },
+  {
+    "id": "10",
+    "name": "TCDC Thailand Creative & Design Center",
+    "type": "library",
+    "coordinates": {
+      "lat": 13.7471,
+      "lng": 100.5328
+    },
+    "address": "6th Floor, Emporium Tower, 622 Sukhumvit 24, Bangkok 10110",
+    "description": "ศูนย์สร้างสรรค์และออกแบบแห่งประเทศไทย พร้อมห้องสมุดและพื้นที่ทำงาน",
+    "images": [
+      "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=800&q=80",
+      "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=800&q=80",
+      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80"
+    ],
+    "wifiAvailable": true,
+    "powerOutlets": true
+  }
+]

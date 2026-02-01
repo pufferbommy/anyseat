@@ -75,69 +75,51 @@ export function meta() {
 
 export default function Blog() {
   return (
-    <div className="bg-neutral-50">
-      <nav className="fixed top-0 left-0 px-3 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-neutral-200">
-        <div className="max-w-6xl py-3 mx-auto flex items-center justify-between">
-          <Link to="/" className="text-2xl font-semibold tracking-tight">Anyseat</Link>
-          <Button color="primary" as={Link} to="/app">
-            สำรวจ
-          </Button>
-        </div>
-      </nav>
-      <main className="pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <section className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              บทความและคู่มือ
-            </h1>
-            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-              ค้นหาเคล็ดลับ แนวทาง และข้อมูลที่เป็นประโยชน์สำหรับการทำงานและเรียนในกรุงเทพฯ
-            </p>
-          </section>
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.map((article) => (
-              <Card key={article.id} className="h-full">
-                <CardHeader className="pb-0">
-                  <div className="flex items-center justify-between w-full">
-                    <span className="text-xs bg-neutral-100 px-3 py-1 rounded-full text-neutral-600">
-                      {article.category}
-                    </span>
-                    <div className="text-3xl">{article.image}</div>
+    <main className="pt-32 pb-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <section className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            บทความและคู่มือ
+          </h1>
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            ค้นหาเคล็ดลับ แนวทาง และข้อมูลที่เป็นประโยชน์สำหรับการทำงานและเรียนในกรุงเทพฯ
+          </p>
+        </section>
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {articles.map((article) => (
+            <Card key={article.id} className="h-full">
+              <CardHeader className="pb-0">
+                <div className="flex items-center justify-between w-full">
+                  <span className="text-xs bg-neutral-100 px-3 py-1 rounded-full text-neutral-600">
+                    {article.category}
+                  </span>
+                  <div className="text-3xl">{article.image}</div>
+                </div>
+              </CardHeader>
+              <CardBody className="pt-4">
+                <h2 className="text-lg font-semibold mb-3 line-clamp-2">{article.title}</h2>
+                <p className="text-sm text-neutral-600 line-clamp-3 mb-4">{article.excerpt}</p>
+                <div className="flex items-center gap-3 text-xs text-neutral-500">
+                  <div className="flex items-center gap-1">
+                    <Calendar size={14} />
+                    {article.date}
                   </div>
-                </CardHeader>
-                <CardBody className="pt-4">
-                  <h2 className="text-lg font-semibold mb-3 line-clamp-2">{article.title}</h2>
-                  <p className="text-sm text-neutral-600 line-clamp-3 mb-4">{article.excerpt}</p>
-                  <div className="flex items-center gap-4 text-xs text-neutral-500">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      {article.date}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Clock size={14} />
-                      {article.readTime}
-                    </div>
+                  <div className="flex items-center gap-1">
+                    <Clock size={14} />
+                    {article.readTime}
                   </div>
-                </CardBody>
-                <CardFooter>
-                  <Button as={Link} to={`/blog/${article.id}`} variant="light" className="w-full">
-                    อ่านเพิ่มเติม
-                    <ArrowRight size={14} />
-                  </Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </section>
-        </div>
-      </main>
-      <footer className="border-t border-neutral-200 px-3">
-        <div className="max-w-6xl mx-auto py-3 flex items-center justify-between">
-          <p className="text-sm text-neutral-500">© 2025 Anyseat.</p>
-          <Link to="/" className="text-sm text-neutral-600 hover:text-neutral-900">
-            หน้าแรก
-          </Link>
-        </div>
-      </footer>
-    </div>
+                </div>
+              </CardBody>
+              <CardFooter>
+                <Button as={Link} to={`/blog/${article.id}`} variant="light" className="w-full">
+                  อ่านเพิ่มเติม
+                  <ArrowRight size={14} />
+                </Button>
+              </CardFooter>
+            </Card>
+          ))}
+        </section>
+      </div>
+    </main>
   );
 }

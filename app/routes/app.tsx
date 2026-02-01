@@ -1,9 +1,9 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import PlacesDrawer from "../components/Map/PlacesDrawer";
-import mockWorkplaces from "../data/mockWorkplaces.json";
-import type { WorkplacePlace } from "../types/workplace.d";
+import Places from "../components/Map/Places";
+import mockPlaces from "../data/mockPlaces.json";
+import type { Place } from "../types/place";
 
-const LazyWorkplaceMap = lazy(() => import("../components/Map/WorkplaceMap"));
+const LazyPlaceMap = lazy(() => import("../components/Map/PlaceMap"));
 
 export function meta() {
   return [
@@ -13,13 +13,11 @@ export function meta() {
 }
 
 export default function App() {
-  const [places] = useState<WorkplacePlace[]>(mockWorkplaces as WorkplacePlace[]);
+  const [places] = useState<Place[]>(mockPlaces as Place[]);
   const [selectedPlaceId, setSelectedPlaceId] = useState<string | null>(null);
 
   useEffect(() => {
-    if (selectedPlaceId) {
-      // Logic to center map on selected place will be handled by WorkplaceMap
-    }
+    if (selectedPlaceId) {}
   }, [selectedPlaceId]);
 
   const handleSelectPlace = (id: string | null) => {
@@ -27,29 +25,29 @@ export default function App() {
   };
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden">
-      {typeof window !== 'undefined' ? (
-        <Suspense fallback={
-          <div className="flex items-center justify-center h-full w-full bg-gray-100 text-gray-500">
-            Loading map...
-          </div>
-        }>
-          <LazyWorkplaceMap
-            places={places}
-            selectedPlaceId={selectedPlaceId}
-            onSelectPlace={handleSelectPlace}
-          />
-        </Suspense>
-      ) : (
-        <div className="flex items-center justify-center h-full w-full bg-gray-100 text-gray-500">
-          Loading map on client...
-        </div>
-      )}
-      <PlacesDrawer
+    <main className="relative grid grid-cols-2 gap-9 p-9">
+      <Places
         places={places}
         selectedPlaceId={selectedPlaceId}
         onSelectPlace={handleSelectPlace}
       />
-    </div>
+      <div className="overflow-hidden rounded-2xl sticky top-[calc(65px+var(--spacing)*8)] h-[calc(100vh-65px-var(--spacing)*8*2)]">
+        {typeof window !== 'undefined' ? (
+          <Suspense fallback={<MapLoader />}>
+            <LazyPlaceMap
+              places={places}
+              selectedPlaceId={selectedPlaceId}
+              onSelectPlace={handleSelectPlace}
+            />
+          </Suspense>
+        ) : <MapLoader />}
+      </div>
+    </main>
   );
+}
+
+function MapLoader() {
+  return <div className="flex items-center justify-center h-full w-full bg-gray-100 text-gray-500">
+    Loading map...
+  </div>
 }

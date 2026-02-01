@@ -57,85 +57,70 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="bg-neutral-50 min-h-screen">
-      <nav className="fixed top-0 left-0 px-3 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-neutral-200">
-        <div className="max-w-6xl py-3 mx-auto flex items-center justify-between">
-          <Link to="/" className="text-2xl font-semibold tracking-tight">Anyseat</Link>
-          <Button color="primary" as={Link} to="/app">
-            สำรวจ
-          </Button>
-        </div>
-      </nav>
-      <main className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
-          <Button as={Link} to="/blog" variant="light" className="mb-6">
-            <ArrowLeft size={16} />
-            กลับไปหน้าบทความ
-          </Button>
-          
-          <article>
-            <header className="mb-8">
-              <div className="flex items-center gap-4 text-sm text-neutral-500 mb-4">
-                <div className="flex items-center gap-1">
-                  <Calendar size={14} />
-                  {article.date}
-                </div>
-                <div className="flex items-center gap-1">
-                  <Clock size={14} />
-                  {article.readTime}
-                </div>
-                <span className="bg-neutral-100 px-3 py-1 rounded-full text-neutral-600">
-                  {article.category}
-                </span>
+    <main className="pt-32 pb-20 px-6">
+      <div className="max-w-3xl mx-auto">
+        <Button as={Link} to="/blog" variant="light" className="mb-6">
+          <ArrowLeft size={16} />
+          กลับไปหน้าบทความ
+        </Button>
+        
+        <article>
+          <header className="mb-8">
+            <div className="flex items-center gap-3 text-sm text-neutral-500 mb-4">
+              <div className="flex items-center gap-1">
+                <Calendar size={14} />
+                {article.date}
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-                {article.title}
-              </h1>
-              <p className="text-neutral-600">โดย {article.author}</p>
-            </header>
-            
-            <div className="prose prose-neutral max-w-none">
-              {article.content.split('\n\n').map((paragraph, index) => {
-                if (paragraph.startsWith('## ')) {
-                  return (
-                    <h2 key={`heading-${index}`} className="text-2xl font-bold mt-8 mb-4">
-                      {paragraph.replace('## ', '')}
-                    </h2>
-                  );
-                }
-                if (paragraph.startsWith('- ')) {
-                  return (
-                    <ul key={`list-${index}`} className="list-disc pl-6 mb-4 space-y-1">
-                      {paragraph.split('\n').map((item, i) => (
-                        <li key={`list-item-${index}-${i}`}>{item.replace('- ', '')}</li>
-                      ))}
-                    </ul>
-                  );
-                }
-                return (
-                  <p key={`paragraph-${index}`} className="text-neutral-700 leading-relaxed mb-4">
-                    {paragraph}
-                  </p>
-                );
-              })}
+              <div className="flex items-center gap-1">
+                <Clock size={14} />
+                {article.readTime}
+              </div>
+              <span className="bg-neutral-100 px-3 py-1 rounded-full text-neutral-600">
+                {article.category}
+              </span>
             </div>
-          </article>
+            <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              {article.title}
+            </h1>
+            <p className="text-neutral-600">โดย {article.author}</p>
+          </header>
           
-          <div className="mt-12 pt-8 border-t border-neutral-200">
-            <h3 className="text-xl font-semibold mb-4">แบ่งปันบทความ</h3>
-            <div className="flex gap-3">
-              <Button variant="light" size="sm">Facebook</Button>
-              <Button variant="light" size="sm">Twitter</Button>
-              <Button variant="light" size="sm">LinkedIn</Button>
-            </div>
+          <div className="prose prose-neutral max-w-none">
+            {article.content.split('\n\n').map((paragraph, index) => {
+              if (paragraph.startsWith('## ')) {
+                return (
+                  <h2 key={`heading-${index}`} className="text-2xl font-bold mt-8 mb-4">
+                    {paragraph.replace('## ', '')}
+                  </h2>
+                );
+              }
+              if (paragraph.startsWith('- ')) {
+                return (
+                  <ul key={`list-${index}`} className="list-disc pl-6 mb-4 space-y-1">
+                    {paragraph.split('\n').map((item, i) => (
+                      <li key={`list-item-${index}-${i}`}>{item.replace('- ', '')}</li>
+                    ))}
+                  </ul>
+                );
+              }
+              return (
+                <p key={`paragraph-${index}`} className="text-neutral-700 leading-relaxed mb-4">
+                  {paragraph}
+                </p>
+              );
+            })}
+          </div>
+        </article>
+        
+        <div className="mt-12 pt-8 border-t border-neutral-200">
+          <h3 className="text-xl font-semibold mb-4">แบ่งปันบทความ</h3>
+          <div className="flex gap-3">
+            <Button variant="light" size="sm">Facebook</Button>
+            <Button variant="light" size="sm">Twitter</Button>
+            <Button variant="light" size="sm">LinkedIn</Button>
           </div>
         </div>
-      </main>
-      <footer className="border-t border-neutral-200 px-3">
-        <div className="max-w-6xl mx-auto py-3">
-          <p className="text-sm text-neutral-500">© 2025 Anyseat.</p>
-        </div>
-      </footer>
-    </div>
+      </div>
+    </main>
   );
 }

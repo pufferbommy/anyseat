@@ -1,13 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import type { WorkplacePlace } from '~/types/workplace.d';
+import type { Place } from '~/types/place';
 import { Button } from '@heroui/react';
-import { Locate, Minus, Plus } from 'lucide-react';
+import { Maximize2, Minus, Plus } from 'lucide-react';
 import L from 'leaflet';
 
-interface WorkplaceMapProps {
-  places: WorkplacePlace[];
+interface PlaceMapProps {
+  places: Place[];
   selectedPlaceId: string | null;
   onSelectPlace: (id: string | null) => void;
 }
@@ -43,12 +43,12 @@ const createCustomIcon = (name: string, type: string, isSelected: boolean) => {
   });
 };
 
-const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, onSelectPlace }) => {
+const PlaceMap: React.FC<PlaceMapProps> = ({ places, selectedPlaceId, onSelectPlace }) => {
   const defaultPosition: [number, number] = [13.7563, 100.5018];
   const defaultZoom = 13;
 
   return (
-    <MapContainer center={defaultPosition} zoom={defaultZoom} className="h-full w-full" zoomControl={false}>
+    <MapContainer center={defaultPosition} zoom={defaultZoom} className="w-full h-full" zoomControl={false}>
       <TileLayer
         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
         attribution="&copy; OpenStreetMap contributors &copy; CARTO"
@@ -65,8 +65,18 @@ const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, on
           }}
         >
           <Popup>
+            {place.images && place.images.length > 0 && (
+              <img
+                src={place.images[0]}
+                alt={place.name}
+                className="w-full h-32 object-cover mb-2 rounded"
+              />
+            )}
             <div className="font-bold text-lg">{place.name}</div>
             <div className="text-sm text-gray-600 capitalize">{place.type}</div>
+            {place.images && place.images.length > 1 && (
+              <div className="text-xs text-neutral-500 mt-1">+{place.images.length - 1} รูปภาพเพิ่มเติม</div>
+            )}
             {place.address && <div className="text-xs text-gray-500">{place.address}</div>}
             {place.description && <p className="mt-1 text-sm">{place.description}</p>}
             <div className="flex text-xs mt-2">
@@ -82,7 +92,7 @@ const WorkplaceMap: React.FC<WorkplaceMapProps> = ({ places, selectedPlaceId, on
   );
 };
 
-const MapController: React.FC<{ selectedPlaceId: string | null; places: WorkplacePlace[] }> = ({
+const MapController: React.FC<{ selectedPlaceId: string | null; places: Place[] }> = ({
   selectedPlaceId,
   places,
 }) => {
@@ -110,14 +120,14 @@ const MapControls = () => {
     }
   }, [])
 
-  return <div ref={ref} className="fixed top-4 right-4 z-400 grid gap-2">
+  return <div ref={ref} className="absolute top-5 right-5 z-400 grid gap-3">
+    <Button isIconOnly variant='faded'>
+      <Maximize2 size={16} />
+    </Button>
     <div className='grid'>
       <ZoomInButton />
       <ZoomOutButton />
     </div>
-    <Button isIconOnly variant='faded'>
-      <Locate size={16} />
-    </Button>
   </div>
 }
 
@@ -141,4 +151,4 @@ const ZoomOutButton = () => {
   )
 }
 
-export default WorkplaceMap;
+export default PlaceMap;
