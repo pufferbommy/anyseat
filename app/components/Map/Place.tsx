@@ -16,9 +16,9 @@ export default function Place({ place }: PlaceProps) {
     <Card className='shadow-none'>
       <CardHeader className='p-0'>
         <Chip className="absolute left-3 top-3 z-10">{place.type}</Chip>
-        <Swiper navigation pagination={{ clickable: true }} modules={[Navigation, Pagination]} className='rounded-lg aspect-square' resistanceRatio={0}>
+        <Swiper navigation pagination={{ clickable: true }} modules={[Navigation, Pagination]} className='aspect-square' resistanceRatio={0}>
           {place.images?.map((image) => (
-            <SwiperSlide className='overflow-hidden h-full first:rounded-l-lg last:rounded-r-lg'>
+            <SwiperSlide>
               <Image
                 removeWrapper
                 src={image}
