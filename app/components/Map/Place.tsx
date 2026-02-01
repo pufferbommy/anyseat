@@ -1,7 +1,11 @@
 import { Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Place as PlaceType } from "~/types/place";
+import { Navigation, Pagination } from 'swiper/modules';
 
 interface PlaceProps {
   place: PlaceType;
@@ -12,7 +16,7 @@ export default function Place({ place }: PlaceProps) {
     <Card className='shadow-none'>
       <CardHeader className='p-0'>
         <Chip className="absolute left-3 top-3 z-10">{place.type}</Chip>
-        <Swiper className='rounded-lg aspect-square' resistanceRatio={0}>
+        <Swiper navigation pagination={{ clickable: true }} modules={[Navigation, Pagination]} className='rounded-lg aspect-square' resistanceRatio={0}>
           {place.images?.map((image) => (
             <SwiperSlide className='overflow-hidden h-full first:rounded-l-lg last:rounded-r-lg'>
               <Image
