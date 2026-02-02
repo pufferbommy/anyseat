@@ -1,9 +1,9 @@
 import { useState, useEffect, Suspense, lazy } from "react";
-import Places from "../components/Map/Places";
+import Places from "../components/Places";
 import mockPlaces from "../data/mockPlaces.json";
 import type { Place } from "../types/place";
 
-const LazyPlaceMap = lazy(() => import("../components/Map/PlaceMap"));
+const LazyPlaceMap = lazy(() => import("../components/PlaceMap"));
 
 export function meta() {
   return [
