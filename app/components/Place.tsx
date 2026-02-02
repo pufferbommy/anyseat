@@ -32,7 +32,7 @@ export default function Place({ place }: PlaceProps) {
   };
 
   return (
-    <Link to={`/places/${place.id}`} className="block">
+    <Link to={`/places/${place.id}`} className="block" viewTransition>
       <Card className='shadow-none group'>
       <CardHeader className='p-0 relative'>
         <Chip className="absolute left-3 top-3 z-10">{place.type}</Chip>
@@ -50,7 +50,7 @@ export default function Place({ place }: PlaceProps) {
           className='aspect-square'
           resistanceRatio={0}
         >
-          {place.images?.map((image) => (
+          {place.images?.map((image, index) => (
             <SwiperSlide key={image}>
               <Image
                 removeWrapper
@@ -58,6 +58,7 @@ export default function Place({ place }: PlaceProps) {
                 alt={place.name}
                 radius="none"
                 className="w-full h-full object-cover"
+                style={index === 0 ? { viewTransitionName: `place-image-${place.id}` } : undefined}
               />
             </SwiperSlide>
           ))}
@@ -73,9 +74,9 @@ export default function Place({ place }: PlaceProps) {
         <div className="swiper-pagination-custom absolute bottom-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5" />
       </CardHeader>
       <CardBody className="p-0 pt-3 gap-1.5">
-        <h3 className="font-bold text-lg">{place.name}</h3>
-        {place.address && <div className="text-xs text-gray-500 truncate">{place.address}</div>}
-        {place.description && <p className="text-sm truncate">{place.description}</p>}
+        <h3 className="font-bold text-lg" style={{ viewTransitionName: `place-title-${place.id}` }}>{place.name}</h3>
+        {place.address && <div className="text-xs text-gray-500 truncate" style={{ viewTransitionName: `place-address-${place.id}` }}>{place.address}</div>}
+        {place.description && <p className="text-sm truncate" style={{ viewTransitionName: `place-description-${place.id}` }}>{place.description}</p>}
         <div className="flex gap-1.5 text-xs">
           {place.wifiAvailable && <Chip size="sm">Wi-Fi</Chip>}
           {place.powerOutlets && <Chip size="sm">Power Outlets</Chip>}
