@@ -8,7 +8,7 @@ interface PlacesProps {
   onSelectPlace: (id: string | null) => void;
 }
 
-const Places = ({ places, selectedPlaceId, onSelectPlace }: PlacesProps) => {
+const Places = ({ places, selectedPlaceId: _selectedPlaceId, onSelectPlace: _onSelectPlace }: PlacesProps) => {
   return (
     <div className='space-y-5'>
       <div className='grid grid-cols-2 gap-5'>
