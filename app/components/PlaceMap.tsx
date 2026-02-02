@@ -28,18 +28,16 @@ const getTypeEmoji = (type: string): string => {
 const createCustomIcon = (name: string, type: string, isSelected: boolean) => {
   return L.divIcon({
     className: 'custom-marker',
-    html: `<div class="
-      ${isSelected ? 'scale-125' : ''}
-      drop-shadow-lg
-      transition-transform
-      duration-200
-      relative
-    ">
-      <span class="absolute bottom-full text-center left-1/2 -translate-x-1/2">${name}</span>
-      <span class="text-2xl">${getTypeEmoji(type)}</span>
+    html: `<div class="flex flex-col items-center">
+      <div class="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-lg text-xs font-semibold whitespace-nowrap mb-1 border border-gray-200">
+        ${name}
+      </div>
+      <div class="text-2xl drop-shadow-lg ${isSelected ? 'scale-125' : ''} transition-transform duration-200">
+        ${getTypeEmoji(type)}
+      </div>
     </div>`,
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
+    iconSize: [120, 60],
+    iconAnchor: [60, 30],
   });
 };
 

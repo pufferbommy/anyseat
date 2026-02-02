@@ -1,6 +1,7 @@
 import { Button, Card, CardBody, CardHeader, Chip, Image } from "@heroui/react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
@@ -31,7 +32,8 @@ export default function Place({ place }: PlaceProps) {
   };
 
   return (
-    <Card className='shadow-none group'>
+    <Link to={`/places/${place.id}`} className="block">
+      <Card className='shadow-none group'>
       <CardHeader className='p-0 relative'>
         <Chip className="absolute left-3 top-3 z-10">{place.type}</Chip>
         <Swiper
@@ -80,5 +82,6 @@ export default function Place({ place }: PlaceProps) {
         </div>
       </CardBody>
     </Card>
+    </Link>
   )
 }

@@ -13,7 +13,7 @@ export default function Layout() {
             <Button as={Link} to="/blog" variant="light">
               บทความ
             </Button>
-            <Button color="primary" as={Link} to="/app">
+            <Button color="primary" as={Link} to="/places">
               สำรวจ
             </Button>
           </div>

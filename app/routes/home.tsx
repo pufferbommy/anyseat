@@ -28,7 +28,7 @@ export default function Home() {
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto mb-10">
             ค้นหาร้านกาแฟ สถานที่ทำงานร่วม และสถานที่ซ่อนตัวที่เหมาะสำหรับการทำงานจากระยะไกลและการเรียน
           </p>
-          <Button color="primary" as={Link} to="/app" size="lg">
+          <Button color="primary" as={Link} to="/places" size="lg">
             เริ่มสำรวจ
             <ArrowRight size={16} />
           </Button>
@@ -123,7 +123,7 @@ export default function Home() {
               </p>
             </CardBody>
             <CardFooter>
-              <Button size="lg" as={Link} to="/app">
+              <Button size="lg" as={Link} to="/places">
                 เริ่มต้นเลย
                 <ArrowRight size={16} />
               </Button>
