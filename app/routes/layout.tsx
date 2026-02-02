@@ -1,10 +1,11 @@
 import { Button } from "@heroui/react";
 import { Link, Outlet } from "react-router";
+import { ThemeSwitcher } from "../components/ThemeSwitcher";
 
 export default function Layout() {
   return (
     <>
-      <nav className="sticky top-0 left-0 px-9 right-0 bg-white/80 backdrop-blur-md z-50 border-b border-neutral-200">
+      <nav className="sticky top-0 left-0 px-9 right-0 bg-background/80 backdrop-blur-md z-50 border-b border-neutral-900">
         <div className="py-3 flex items-center justify-between">
           <Link to="/" className="text-2xl font-semibold tracking-tight">
             Anyseat
@@ -16,6 +17,7 @@ export default function Layout() {
             <Button color="primary" as={Link} to="/places">
               สำรวจ
             </Button>
+            <ThemeSwitcher />
           </div>
         </div>
       </nav>
