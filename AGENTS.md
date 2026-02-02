@@ -78,16 +78,31 @@ import MyComponent from './MyComponent';
 - **Type Aliases/Interfaces:** `PascalCase` (e.g., `MyType`, `MyInterface`).
 
 ### Error Handling
-- **Graceful Degradation:** Implement robust error handling for API calls, user input, and unexpected states.
-- **Try/Catch:** Use `try...catch` blocks for asynchronous operations and other potentially error-prone code.
-- **User Feedback:** Provide clear and helpful error messages to the user where applicable.
-- **Logging:** Log errors to the console or a logging service for debugging purposes.
+- **Graceful Degradation:** Implement robust error handling for API calls, user input, and unexpected states. Use `try...catch` blocks for asynchronous operations and other potentially error-prone code.
+- **User Feedback:** Provide clear and helpful error messages to the user where applicable, ensuring a good user experience.
+- **Logging:** Log errors to the console or a logging service for debugging purposes. Ensure sensitive information is not logged.
 
 ### General Guidelines
-- **Modularity:** Break down large components and functions into smaller, reusable, and focused units.
+- **Modularity:** Break down large components and functions into smaller, reusable, and focused units. This improves readability and maintainability.
 - **DRY (Don't Repeat Yourself):** Avoid code duplication. Create utility functions or components for repeated logic/UI.
-- **Readability:** Prioritize clear, concise, and understandable code.
+- **Readability:** Prioritize clear, concise, and understandable code. Write code that is easy for others to read and understand.
 - **Comments:** Use comments sparingly, only to explain *why* something is done, not *what* it does. Good code should be self-documenting.
+- **Performance:** Be mindful of performance implications, especially in React components. Optimize rendering and state updates where necessary.
+- **Accessibility:** Ensure all UI components and interactions are accessible to users with disabilities. Follow WCAG guidelines.
+- **Security:** Be aware of common web vulnerabilities (XSS, CSRF, Injection) and write code to prevent them. Sanitize user input.
+- **Code Quality:** Strive for high code quality by writing clear, maintainable, and testable code. Regularly review and refactor code to improve its design and reduce technical debt.
+
+---
+
+## 3. Proactive Guidelines
+
+- **Conventions:** Rigorously adhere to existing project conventions when reading or modifying code. Analyze surrounding code, tests, and configuration first.
+- **Libraries/Frameworks:** NEVER assume a library/framework is available or appropriate. Verify its established usage within the project (check imports, configuration files like 'package.json', 'Cargo.toml', 'requirements.txt', 'build.gradle', etc., or observe neighboring files) before employing it.
+- **Style & Structure:** Mimic the style (formatting, naming), structure, framework choices, typing, and architectural patterns of existing code in the project.
+- **Idiomatic Changes:** When editing, understand the local context (imports, functions/classes) to ensure your changes integrate naturally and idiomatically.
+- **Comments:** Add code comments sparingly. Focus on *why* something is done, especially for complex logic, rather than *what* is done. Only add high-value comments if necessary for clarity or if requested by the user. Do not edit comments that are separate from the code you are changing.
+- **Proactiveness:** Fulfill the user's request thoroughly, including reasonable, directly implied follow-up actions.
+- **Confirm Ambiguity/Expansion:** Do not take significant actions beyond the clear scope of the request without confirming with the user. If asked *how* to do something, explain first, don't just do it.
 
 ---
 
