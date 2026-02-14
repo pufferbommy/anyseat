@@ -1,69 +1,42 @@
-# Anyseat - Find Your Working Chill Places in Bangkok
+# sv
 
-A React application for discovering cafes, coworking spaces, and other chill places for remote work and study in Bangkok. Uses React Router, Tailwind CSS, Leaflet, and HeroUI.
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Creating a project
 
-## Features
+If you're seeing this, you've probably already done this step. Congrats!
 
-- 🚀 Server-side rendering
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 🗺️ Interactive Maps with Leaflet
-- ✨ Beautiful UI with HeroUI Components
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
+```sh
+# create a new project
+npx sv create my-app
 ```
 
-### Development
+To recreate this project with the same configuration:
 
-Start the development server:
+```sh
+# recreate this project
+pnpm dlx sv create --template minimal --types ts --install pnpm .
+```
 
-```bash
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```sh
 npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
 
-Your application will be available at `http://localhost:5173`.
+## Building
 
-## Building for Production
+To create a production version of your app:
 
-Create a production build:
-
-```bash
+```sh
 npm run build
 ```
 
-## Deployment
+You can preview the production build with `npm run preview`.
 
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker.
-
-## Roadmap
-
-*   User Authentication & Profiles
-*   Review and Rating System
-*   Advanced Search and Filtering
-*   Location Submission
-*   Notifications
-*   Mobile App
-
----
-
-Built with ❤️ using React Router.
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
