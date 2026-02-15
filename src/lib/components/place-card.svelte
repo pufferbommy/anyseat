@@ -16,28 +16,19 @@
 
 	export interface PlaceCardProps {
 		place: Place;
-		isFavorite?: boolean;
-		onFavoriteToggle?: (id: string) => void;
 		onClick?: (place: Place) => void;
 	}
 </script>
 
 <script lang="ts">
 	import * as Card from "$lib/components/ui/card";
-    import { cn } from "@/utils";
-    import { Button } from "./ui/button";
+	import { cn } from "@/utils";
+	import { Button } from "./ui/button";
 
 	let {
 		place,
-		isFavorite = false,
-		onFavoriteToggle,
 		onClick,
 	}: PlaceCardProps = $props();
-
-	function handleFavoriteClick(e: MouseEvent) {
-		e.stopPropagation();
-		onFavoriteToggle?.(place.id);
-	}
 
 	function handleClick() {
 		onClick?.(place);
@@ -58,8 +49,6 @@
 			</div>
 		{/if}
 
-		<Button class={cn("absolute right-2 top-2", isFavorite ? "text-red-500" : "text-muted-foreground")} variant="outline" size="icon-sm" onclick={handleFavoriteClick} aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}>♡</Button>
-
 		<div
 			class="absolute left-2 top-2 rounded-full px-2 py-1 text-xs font-medium {place.isOpen
 				? 'bg-green-500 text-white'
@@ -68,7 +57,7 @@
 			{place.isOpen ? "Open" : "Closed"}
 		</div>
 	</div>
-	<Card.Content class="p-4">
+	<Card.Content>
 		<div class="mb-2 flex items-start justify-between gap-2">
 			<div class="flex-1">
 				<h3 class="font-semibold leading-tight">{place.name}</h3>

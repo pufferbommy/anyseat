@@ -3,8 +3,6 @@
 
 	export interface PlaceGridProps {
 		places: Place[];
-		favoriteIds?: string[];
-		onFavoriteToggle?: (id: string) => void;
 		onPlaceClick?: (place: Place) => void;
 		isLoading?: boolean;
 		emptyMessage?: string;
@@ -17,8 +15,6 @@
 
 	let {
 		places,
-		favoriteIds = [],
-		onFavoriteToggle,
 		onPlaceClick,
 		isLoading = false,
 		emptyMessage = "No places found. Try adjusting your filters.",
@@ -56,8 +52,6 @@
 			{#each places as place (place.id)}
 				<PlaceCard
 					{place}
-					isFavorite={favoriteIds.includes(place.id)}
-					{onFavoriteToggle}
 					onClick={onPlaceClick}
 				/>
 			{/each}

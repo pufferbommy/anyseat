@@ -87,7 +87,6 @@
 		sortBy: "distance",
 	});
 
-	let favoriteIds = $state<string[]>([]);
 	let selectedPlace = $state<Place | null>(null);
 	let isDialogOpen = $state(false);
 
@@ -141,14 +140,6 @@
 		return result;
 	});
 
-	function handleFavoriteToggle(id: string) {
-		if (favoriteIds.includes(id)) {
-			favoriteIds = favoriteIds.filter((fid) => fid !== id);
-		} else {
-			favoriteIds = [...favoriteIds, id];
-		}
-	}
-
 	function handlePlaceClick(place: Place) {
 		selectedPlace = place;
 		isDialogOpen = true;
@@ -156,33 +147,15 @@
 </script>
 
 <svelte:head>
-	<title>AnySeat - Find Work-Friendly Places</title>
+	<title>AnySeats - Find Work-Friendly Places</title>
 </svelte:head>
 
 <div class="min-h-screen bg-background">
 	<header class="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
 		<div class="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-			<div class="flex items-center gap-2">
-				<span class="text-2xl">💺</span>
-				<h1 class="text-xl font-bold">AnySeat</h1>
-			</div>
+			<h1 class="text-xl font-bold">AnySeats</h1>
 
 			<nav class="flex items-center gap-4">
-				<Button variant="ghost" size="sm">
-					<span>📍</span>
-					<span class="ml-1 hidden sm:inline">Current Location</span>
-				</Button>
-
-				<Button variant="ghost" size="sm">
-					<span>♡</span>
-					<span class="ml-1 hidden sm:inline">Favorites</span>
-					{#if favoriteIds.length > 0}
-						<span class="ml-1 rounded-full bg-primary px-1.5 py-0.5 text-xs text-primary-foreground">
-							{favoriteIds.length}
-						</span>
-					{/if}
-				</Button>
-
 				<Button variant="ghost" size="sm">
 					<span>👤</span>
 				</Button>
@@ -194,9 +167,6 @@
 		<div class="grid gap-6 lg:grid-cols-[320px_1fr]">
 			<aside class="space-y-4">
 				<div class="sticky top-20">
-					<div class="mb-4 flex items-center justify-between">
-						<h2 class="text-lg font-semibold">Filters</h2>
-					</div>
 					<SearchFilter
 						{filters}
 						onFilterChange={(newFilters) => (filters = newFilters)}
@@ -205,17 +175,8 @@
 			</aside>
 
 			<section>
-				<div class="mb-4 lg:hidden">
-					<Button variant="outline" class="w-full">
-						<span>🔍</span>
-						<span class="ml-2">Show Filters</span>
-					</Button>
-				</div>
-
 				<PlaceGrid
 					places={filteredPlaces()}
-					{favoriteIds}
-					onFavoriteToggle={handleFavoriteToggle}
 					onPlaceClick={handlePlaceClick}
 					isLoading={false}
 				/>
@@ -226,12 +187,9 @@
 	<footer class="mt-12 border-t bg-muted/50">
 		<div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 			<div class="flex flex-col items-center justify-between gap-4 sm:flex-row">
-				<div class="flex items-center gap-2">
-					<span class="text-xl">💺</span>
-					<span class="font-semibold">AnySeat</span>
-				</div>
+				<span class="font-semibold">AnySeats</span>
 				<p class="text-sm text-muted-foreground">
-					© 2024 AnySeat. Find your perfect workspace.
+					© 2024 AnySeats. Find your perfect workspace.
 				</p>
 			</div>
 		</div>
